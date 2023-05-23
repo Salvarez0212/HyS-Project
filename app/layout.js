@@ -1,9 +1,9 @@
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { Menu } from "./components/Menu";
 import Footer from "./components/Footer";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["200", "400", "700"] });
 const links = [
   { label: "Home", route: "/" },
   { label: "Proyectos", route: "/proyectos" },
@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <header>
           <Menu links={links} />
         </header>

@@ -1,0 +1,53 @@
+@import "../variables.module.scss";
+
+.services__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  h3 {
+    font-size: 28px;
+    color: $primary-orange-color;
+  }
+}
+.card__container {
+  max-width: 950px;
+  margin: 1.2rem;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .card {
+    width: 260px;
+    height: 160px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: left;
+    background-color: $background-gray;
+    border-radius: 5px;
+    box-shadow: $secondary-orange-color 0px 3px 8px;
+
+    h4 {
+      color: $secondary-orange-color;
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 180px;
+      height: 240px;
+    }
+  }
+}

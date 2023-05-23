@@ -1,6 +1,6 @@
 import Image from "next/image";
 import backGroundImage from "../public/assets/homeImage.jpg";
-import whoWeAreStyles from "../styles/home/whoWeAre.module.css";
+import whoWeAreStyles from "../styles/home/whoWeAre.module.scss";
 
 export const WhoWeAre = () => {
   return (
