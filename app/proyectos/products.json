@@ -1,0 +1,9 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "categoty": "kitchen",
+      "image": "../../public/assets/homeImage.jpg"
+    }
+  ]
+}
