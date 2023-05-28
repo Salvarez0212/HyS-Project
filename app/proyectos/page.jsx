@@ -1,4 +1,4 @@
-import { Gallery } from "./Gallery/Gallery";
+import Filter from "./Gallery/Filter";
 
 import projectsStyles from "../../styles/proyectos/proyectos.module.scss";
 
@@ -12,8 +12,7 @@ const proyectos = () => {
           nuestros clientes con su sueño de tener lo mejor para su hogar.
         </p>
       </article>
-
-      <Gallery />
+      <Filter />
     </main>
   );
 };

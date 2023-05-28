@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin-bottom: 1rem;
 }
 .gallery__grid {
   width: 320px;
@@ -29,11 +30,9 @@
   padding: 0.8rem;
   margin-bottom: 20px;
   border-radius: 5px;
-  box-shadow: $secondary-orange-color 0px 3px 8px;
-
+  cursor: pointer;
   &:hover {
-    width: 300px;
-    height: 300px;
+    box-shadow: $secondary-orange-color 0px 3px 8px;
   }
 
   .image {
@@ -41,12 +40,5 @@
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
-  }
-
-  @media (min-width: 1024px) {
-    &:hover {
-      width: 400px;
-      height: 400px;
-    }
   }
 }

@@ -1,34 +1,21 @@
-"use client";
-import Image from "next/image";
-import { projects } from "../projects";
-
 import galleryStyles from "../../../styles/proyectos/gallery.module.scss";
+import Swal from "sweetalert2";
 
-export const Gallery = () => {
-  //TO-DO: connect with strapi and delete projects.js
-
-  //const [projects, setProjects] = useState([]);
-  //   useEffect(() => {
-  //     axios
-  //       .get("./products.json")
-  //       .then((response) => {
-  //         setProjects(response.data.projects);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching projects:", error);
-  //       });
-  //   }, []);
+const Gallery = ({ projects }) => {
+  const handleModal = (urlImage, category) => {
+    Swal.fire({
+      html: `<img src="${urlImage}" alt="${category}" style="max-width: 100%; max-height: 100%;" />`,
+      showConfirmButton: true,
+      width: "80%",
+      height: "80%",
+      customClass: {
+        confirmButton: `${galleryStyles.confirm__button}`,
+      },
+    });
+  };
 
   return (
     <section className={galleryStyles.gallery__container}>
-      <div>
-        <select name="" id="">
-          <option value="">Todos</option>
-          <option value="cocinas">Cocinas</option>
-          <option value="closets">Closets y vestieres</option>
-          <option value="otros">Otros</option>
-        </select>
-      </div>
       <article className={galleryStyles.gallery__grid}>
         {projects.map((project) => (
           <div key={project.id} className={galleryStyles.image__container}>
@@ -36,6 +23,7 @@ export const Gallery = () => {
               src={project.image}
               alt={project.category}
               className={galleryStyles.image}
+              onClick={() => handleModal(project.image, project.category)}
             />
           </div>
         ))}
@@ -43,3 +31,5 @@ export const Gallery = () => {
     </section>
   );
 };
+
+export default Gallery;
