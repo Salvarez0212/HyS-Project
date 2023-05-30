@@ -30,7 +30,9 @@
   gap: 1rem;
 }
 .check__container {
+  width: 150px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 0.6rem;
 }

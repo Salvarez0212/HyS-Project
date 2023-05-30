@@ -51,7 +51,6 @@ export const CocinaOpciones = () => {
     setTotal(totalToShow);
   }, [type, length, material, meson, tower, bar, island]);
 
-  console.log(quoteData);
   return (
     <section className={optionStyle.options__container}>
       <div>
@@ -117,7 +116,7 @@ export const CocinaOpciones = () => {
         </div>
       </div>
       <div className={optionStyle.total__container}>
-        <h4>Total: ${total}</h4>
+        <h4>Total: ${total.toLocaleString("es-ES")}</h4>
       </div>
     </section>
   );
