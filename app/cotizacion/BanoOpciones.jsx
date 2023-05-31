@@ -26,21 +26,20 @@ export const BanoOpciones = () => {
       setQuoteData((prevData) => ({ ...prevData, meson: 0 }));
     }
 
-    const typeValue = type === "empotrado" ? 100 : 200;
+    const typeValue = 7500;
     const lengthValue = Number(length);
-    const materialValue = material === "standard" ? 100 : 200;
+    const materialValue = material === "standard" ? 1 : 1.34;
     const mesonValue = meson
       ? meson === "quartstone"
-        ? 100
+        ? 6900
         : meson === "granite"
-        ? 200
-        : 300
+        ? 6900
+        : 27000
       : 0;
-    const superiorValue = superior ? 100 : 0;
+    const superiorValue = superior ? 200000 : 0;
 
     const totalToShow =
-      typeValue * lengthValue +
-      materialValue +
+      typeValue * lengthValue * materialValue +
       mesonValue * lengthValue +
       superiorValue;
 
@@ -57,8 +56,21 @@ export const BanoOpciones = () => {
           </select>
         </div>
         <div className={optionStyle.inputs__container}>
+          <label htmlFor="meson">2. Selecciona el tipo de pidra: </label>
+          <select
+            name="meson"
+            id="meson"
+            onChange={handleInput}
+            disabled={type === "empotrado" ? true : false}
+          >
+            <option value="quartstone">Quartstone</option>
+            <option value="granite">Granito natural</option>
+            <option value="sintered">Sinterizado</option>
+          </select>
+        </div>
+        <div className={optionStyle.inputs__container}>
           <label htmlFor="length">
-            2. Ingresa la longitud en centimetros:{" "}
+            3. Ingresa la longitud en centimetros:{" "}
           </label>
           <input
             id="length"
@@ -70,23 +82,10 @@ export const BanoOpciones = () => {
           />
         </div>
         <div className={optionStyle.inputs__container}>
-          <label htmlFor="material">3. Selecciona el tipo de material: </label>
+          <label htmlFor="material">4. Selecciona el tipo de material: </label>
           <select name="material" id="material" onChange={handleInput}>
             <option value="standard">Estandar</option>
             <option value="highgloss">HighGloss (Brillante)</option>
-          </select>
-        </div>
-        <div className={optionStyle.inputs__container}>
-          <label htmlFor="meson">4. Selecciona el tipo de pidra: </label>
-          <select
-            name="meson"
-            id="meson"
-            onChange={handleInput}
-            disabled={type === "empotrado" ? true : false}
-          >
-            <option value="quartstone">Quartstone</option>
-            <option value="granite">Granito natural</option>
-            <option value="sintered">Sinterizado</option>
           </select>
         </div>
       </div>

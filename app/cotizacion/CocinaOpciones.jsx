@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import optionStyle from "../../styles/cotizacion/options.module.scss";
-
+// TO-DO: agregar opción de pozuelo para piedras, barra e isla poner la longitud (o barra o isla), agregar longitud + 100 si es acero
 export const CocinaOpciones = () => {
   const [total, setTotal] = useState(0);
   const [quoteData, setQuoteData] = useState({
@@ -25,24 +25,23 @@ export const CocinaOpciones = () => {
   const { type, length, material, meson, tower, bar, island } = quoteData;
 
   useEffect(() => {
-    const typeValue = type === "lineal" ? 100 : 200;
+    const typeValue = type === "lineal" ? 13400 : 15400;
     const lengthValue = Number(length);
-    const materialValue = material === "standard" ? 100 : 200;
+    const materialValue = material === "standard" ? 1 : 1.34;
     const mesonValue =
       meson === "steel"
-        ? 100
+        ? 3000
         : meson === "quartstone"
-        ? 200
+        ? 6900
         : meson === "granite"
-        ? 300
-        : 400;
-    const towerValue = tower ? 100 : 0;
-    const barValue = bar ? 100 : 0;
-    const islandValue = island ? 100 : 0;
+        ? 6900
+        : 27000;
+    const towerValue = tower ? 1200000 : 0;
+    const barValue = bar ? 870000 : 0;
+    const islandValue = island ? 1100000 : 0;
 
     const totalToShow =
-      typeValue * lengthValue +
-      materialValue +
+      typeValue * lengthValue * materialValue +
       mesonValue * lengthValue +
       towerValue +
       barValue +

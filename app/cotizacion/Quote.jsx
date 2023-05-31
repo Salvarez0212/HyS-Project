@@ -4,6 +4,7 @@ import { CocinaOpciones } from "./CocinaOpciones";
 import { ClosetOpciones } from "./ClosetOpciones";
 import { BanoOpciones } from "./BanoOpciones";
 import { CentroOpciones } from "./CentroOpciones";
+import { EmailForm } from "./EmailForm";
 import quoteStyles from "../../styles/cotizacion/quote.module.scss";
 
 export const Quote = () => {
@@ -36,6 +37,7 @@ export const Quote = () => {
       ) : (
         <CocinaOpciones />
       )}
+      <EmailForm />
     </section>
   );
 };

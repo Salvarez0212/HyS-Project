@@ -4,6 +4,7 @@ import optionStyle from "../../styles/cotizacion/options.module.scss";
 export const CentroOpciones = () => {
   const [total, setTotal] = useState(0);
   const [quoteData, setQuoteData] = useState({
+    height: 0,
     length: 0,
     material: "standard",
   });
@@ -16,16 +17,18 @@ export const CentroOpciones = () => {
       [name]: value,
     });
   };
-  const { length, material } = quoteData;
+  const { height, length, material } = quoteData;
 
   useEffect(() => {
+    const typeValue = 120;
+    const heightValue = Number(height);
     const lengthValue = Number(length);
-    const materialValue = material === "standard" ? 100 : 200;
+    const materialValue = material === "standard" ? 1 : 1.34;
 
-    const totalToShow = lengthValue * materialValue;
+    const totalToShow = typeValue * heightValue * lengthValue * materialValue;
 
     setTotal(totalToShow);
-  }, [length, material]);
+  }, [height, length, material]);
   return (
     <section className={optionStyle.options__container}>
       <div>
@@ -43,7 +46,18 @@ export const CentroOpciones = () => {
           />
         </div>
         <div className={optionStyle.inputs__container}>
-          <label htmlFor="material">2. Selecciona el tipo de material: </label>
+          <label htmlFor="height">2. Ingresa la altura en centimetros: </label>
+          <input
+            id="height"
+            name="height"
+            type="number"
+            placeholder="100"
+            className={optionStyle.input}
+            onChange={handleInput}
+          />
+        </div>
+        <div className={optionStyle.inputs__container}>
+          <label htmlFor="material">3. Selecciona el tipo de material: </label>
           <select name="material" id="material" onChange={handleInput}>
             <option value="standard">Estandar</option>
             <option value="highgloss">HighGloss (Brillante)</option>

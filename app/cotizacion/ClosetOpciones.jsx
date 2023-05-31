@@ -20,11 +20,11 @@ export const ClosetOpciones = () => {
   const { type, length, material } = quoteData;
 
   useEffect(() => {
-    const typeValue = type === "vestier" ? 100 : 200;
+    const typeValue = type === "vestier" ? 6500 : 10000;
     const lengthValue = Number(length);
-    const materialValue = material === "standard" ? 100 : 200;
+    const materialValue = material === "standard" ? 1 : 1.34;
 
-    const totalToShow = typeValue * lengthValue + materialValue;
+    const totalToShow = typeValue * lengthValue * materialValue;
 
     setTotal(totalToShow);
   }, [type, length, material]);
