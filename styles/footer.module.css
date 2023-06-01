@@ -15,6 +15,9 @@
   gap: 0.8rem;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
+.ubication__placer {
+  height: 24px;
+}
 .info__container {
   display: flex;
   justify-content: flex-start;

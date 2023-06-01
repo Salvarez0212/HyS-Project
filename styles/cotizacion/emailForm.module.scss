@@ -23,4 +23,27 @@
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .input {
+    height: 40px;
+    padding-left: 0.5rem;
+  }
+}
+
+.button__container {
+  margin: 1.5rem 0;
+  .button {
+    width: 100px;
+    height: 40px;
+    background-color: $primary-orange-color;
+    font-weight: 700;
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: $secondary-orange-color 0px 3px 8px;
+    }
+  }
 }

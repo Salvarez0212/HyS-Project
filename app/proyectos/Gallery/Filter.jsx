@@ -7,19 +7,6 @@ import Gallery from "./Gallery";
 const Filter = () => {
   const [category, setCategoty] = useState("Todos");
   const [projectsToShow, setProjectsToShow] = useState(projects);
-  //TO-DO: connect with strapi and delete projects.js
-
-  //const [projects, setProjects] = useState([]);
-  //   useEffect(() => {
-  //     axios
-  //       .get("./products.json")
-  //       .then((response) => {
-  //         setProjects(response.data.projects);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching projects:", error);
-  //       });
-  //   }, []);
 
   const handleCategories = (event) => {
     const category = event.target.value;
