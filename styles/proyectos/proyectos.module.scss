@@ -1,0 +1,17 @@
+@import "../variables.module.scss";
+
+.text__container {
+  max-width: 1000px;
+  text-align: left;
+  padding: 1.2rem;
+  margin: 0 auto;
+  h2 {
+    margin-bottom: 1rem;
+    color: $secondary-orange-color;
+    font-weight: 700;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 200px;
+  }
+}

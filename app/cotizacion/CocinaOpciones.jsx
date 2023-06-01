@@ -1,0 +1,122 @@
+"use client";
+import { useEffect, useState } from "react";
+import optionStyle from "../../styles/cotizacion/options.module.scss";
+// TO-DO: agregar opción de pozuelo para piedras, barra e isla poner la longitud (o barra o isla), agregar longitud + 100 si es acero
+export const CocinaOpciones = () => {
+  const [total, setTotal] = useState(0);
+  const [quoteData, setQuoteData] = useState({
+    type: "lineal",
+    length: 0,
+    material: "standard",
+    meson: "steel",
+    tower: false,
+    bar: false,
+    island: false,
+  });
+
+  const handleInput = (event) => {
+    const { name, value, type, checked } = event.target;
+
+    setQuoteData({
+      ...quoteData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+  const { type, length, material, meson, tower, bar, island } = quoteData;
+
+  useEffect(() => {
+    const typeValue = type === "lineal" ? 13400 : 15400;
+    const lengthValue = Number(length);
+    const materialValue = material === "standard" ? 1 : 1.34;
+    const mesonValue =
+      meson === "steel"
+        ? 3000
+        : meson === "quartstone"
+        ? 6900
+        : meson === "granite"
+        ? 6900
+        : 27000;
+    const towerValue = tower ? 1200000 : 0;
+    const barValue = bar ? 870000 : 0;
+    const islandValue = island ? 1100000 : 0;
+
+    const totalToShow =
+      typeValue * lengthValue * materialValue +
+      mesonValue * lengthValue +
+      towerValue +
+      barValue +
+      islandValue;
+
+    setTotal(totalToShow);
+  }, [type, length, material, meson, tower, bar, island]);
+
+  return (
+    <section className={optionStyle.options__container}>
+      <div>
+        <div className={optionStyle.inputs__container}>
+          <label htmlFor="type">1. Selecciona el tipo de cocina:</label>
+          <select name="type" onChange={handleInput}>
+            <option value="lineal">Lineal</option>
+            <option value="L">En L</option>
+          </select>
+        </div>
+        <div className={optionStyle.inputs__container}>
+          <label htmlFor="length">
+            2. Ingresa la longitud en centimetros:{" "}
+          </label>
+          <input
+            id="length"
+            name="length"
+            type="number"
+            placeholder="100"
+            className={optionStyle.input}
+            onChange={handleInput}
+          />
+        </div>
+        <div className={optionStyle.inputs__container}>
+          <label htmlFor="material">3. Selecciona el tipo de material: </label>
+          <select name="material" id="material" onChange={handleInput}>
+            <option value="standard">Estandar</option>
+            <option value="highgloss">HighGloss (Brillante)</option>
+          </select>
+        </div>
+        <div className={optionStyle.inputs__container}>
+          <label htmlFor="meson">4. Selecciona el tipo de mesón: </label>
+          <select name="meson" id="meson" onChange={handleInput}>
+            <option value="steel">Acero inoxidable</option>
+            <option value="quartstone">Quartstone</option>
+            <option value="granite">Granito natural</option>
+            <option value="sintered">Sinterizado</option>
+          </select>
+        </div>
+      </div>
+      <div className={optionStyle.second__options}>
+        <div className={optionStyle.check__container}>
+          <label htmlFor="tower">5. Con torre? </label>
+          <input
+            type="checkbox"
+            name="tower"
+            id="tower"
+            onChange={handleInput}
+          />
+        </div>
+        <div className={optionStyle.check__container}>
+          <label htmlFor="tower">6. Con barra? </label>
+          <input type="checkbox" name="bar" id="bar" onChange={handleInput} />
+        </div>
+        <div className={optionStyle.check__container}>
+          <label htmlFor="island">7. Con isla? </label>
+          <input
+            type="checkbox"
+            name="island"
+            id="island"
+            onChange={handleInput}
+          />
+        </div>
+      </div>
+      <div className={optionStyle.total__container}>
+        <h4>Total: ${total.toLocaleString("es-ES")}</h4>
+      </div>
+    </section>
+  );
+};

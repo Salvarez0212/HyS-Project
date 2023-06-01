@@ -14,7 +14,7 @@ const Footer = () => {
           className={`${footerStyles.info__container} ${footerStyles.socials}`}
         >
           <BsInstagram />
-          <a href="https://instagram.com/cocinas_y_decoraciones_hys?igshid=MzRlODBiNWFlZA==">
+          <a href="https://instagram.com/cocinas_y_decoraciones_hys?igshid=NTc4MTIwNjQ2YQ==">
             <p>Instagram</p>
           </a>
         </div>
@@ -32,6 +32,7 @@ const Footer = () => {
         <div>
           <p>Cll. 30A #74-44</p>
         </div>
+        <div className={footerStyles.ubication__placer}></div>
       </section>
       <section className={footerStyles.footer__section}>
         <h4>Contactanos</h4>
