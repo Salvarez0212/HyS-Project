@@ -1,4 +1,4 @@
-import ourServices from "./OurServices/ourServices";
+import ourServices from "./OurServices/ourServices.js";
 import servicesStyles from "../styles/home/ourServices.module.scss";
 
 export const OurServices = () => {

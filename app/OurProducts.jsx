@@ -1,6 +1,6 @@
 "use client";
 
-import ourProducts from "./OurProducts/ourProducts";
+import ourProducts from "./OurProducts/ourProducts.js";
 import {
   Accordion,
   AccordionItem,
